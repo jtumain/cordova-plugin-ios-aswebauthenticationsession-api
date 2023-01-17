@@ -1,10 +1,12 @@
 ## I am no longer making updates to this fork. Please refer to the original repository, or fork this one in order to maintain it.
 
 # cordova-plugin-ios-aswebauthenticationsession-api
-Cordova Plugin for iOS 12 ASWebAuthenticationSession API. Originally forked from [rak13/cordova-plugin-ios-aswebauthenticationsession](https://github.com/rak13/cordova-plugin-ios-aswebauthenticationsession) and updated to address an [issue](https://github.com/rak13/cordova-plugin-ios-aswebauthenticationsession/issues/1) present after updating to iOS 13.
+Cordova Plugin for iOS 13 ASWebAuthenticationSession API. Originally forked from [https://github.com/jwelker110/cordova-plugin-ios-aswebauthenticationsession-api](https://github.com/jwelker110/cordova-plugin-ios-aswebauthenticationsession-api).
+
+This fork clears the session before starting a new one. So each time the user attempts to login, they should be presented with a login screen, rather than the session being remembered. This was achieved by setting "prefersEphemeralWebBrowserSession" to true, before starting the ASWebAuthSession.
 
 ## usage
-    window.plugins.ASWebAuthSession.start("myappurlscheme://dummy/staff", 'https://linktoopen.someplace.com/index.html',
+    window.plugins.ASWebAuthSession.start("myappurlscheme", 'https://api.auth.com/authenticate',
     function(msg){
       console.log("Success ", msg);
     }, function (err) {
