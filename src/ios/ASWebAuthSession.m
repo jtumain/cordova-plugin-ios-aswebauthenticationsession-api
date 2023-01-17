@@ -14,6 +14,9 @@ ASWebAuthenticationSession *_asAuthenticationVC;
 }
 
 -(void)appIsActive {
+    if (@available(iOS 13.0, *)) {
+        _asAuthenticationVC.prefersEphemeralWebBrowserSession = true;
+    }
     [_asAuthenticationVC start];
 }
 
